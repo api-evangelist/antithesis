@@ -1,0 +1,56 @@
+generated: '2026-07-17'
+method: searched
+source: https://antithesis.com/docs/configuration/auth/
+docs: https://antithesis.com/docs/configuration/auth/
+description: >-
+  Antithesis isolates each customer into a tenant with its own cloud instance.
+  Four actions require authorization: pushing images to the Antithesis registry,
+  kicking off tests, viewing reports, and multiverse debugging. Automated actions
+  (image push, launching tests via the webhook/REST API) use long-lived machine
+  credentials; interactive actions (viewing reports, multiverse debugging) use
+  SSO. There is no OpenAPI to derive from; this profile is captured from the docs.
+summary:
+  types: [http, openIdConnect]
+  http_schemes: [basic]
+  sso: [github, oidc]
+schemes:
+  - name: webhookBasicAuth
+    type: http
+    scheme: basic
+    description: >-
+      Machine credentials (a webhook `user` and `password`) generated per tenant
+      and sent securely at signup. Used by CI to launch tests via the webhook /
+      REST API. Long-lived; rotatable by Antithesis on compromise. Should not be
+      used in manual/interactive processes.
+    used_for: [launch tests, push images]
+    source: https://antithesis.com/docs/configuration/auth/
+  - name: registryCredentials
+    type: apiKey
+    in: file
+    parameter_name: $TENANT_NAME.key.json
+    description: >-
+      Container image registry credentials (JSON key file) for pushing images to
+      the tenant's Antithesis image registry.
+    source: https://antithesis.com/docs/configuration/auth/
+  - name: ssoGitHub
+    type: openIdConnect
+    scheme: github-sso
+    description: >-
+      Login with GitHub for user access to reports and multiverse debugging.
+      Authorization criteria: organization membership, team membership, public
+      repo collaborators, or verified email domain.
+    used_for: [view reports, multiverse debugging]
+    source: https://antithesis.com/docs/configuration/auth/
+  - name: ssoOIDC
+    type: openIdConnect
+    openIdConnectUrl: https://{tenant}.antithesis.com/oidc/callback
+    description: >-
+      Login with any OIDC-compliant Identity Provider (Okta, Microsoft Entra,
+      Google Identity). Customer supplies client ID/secret and issuer URL /
+      .well-known endpoint; Antithesis supplies the redirect URL.
+    used_for: [view reports, multiverse debugging]
+    source: https://antithesis.com/docs/configuration/auth/
+notes: >-
+  Reports are served only via unguessable signed URLs; SSO can additionally gate
+  report access. Multiverse debugging requires SSO. Support / credential requests:
+  support@antithesis.com.
