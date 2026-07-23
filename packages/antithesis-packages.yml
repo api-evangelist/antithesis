@@ -1,0 +1,83 @@
+generated: '2026-07-17'
+method: searched
+source: https://antithesis.com/docs/reference/sdk/ and https://github.com/antithesishq
+description: >-
+  First-party Antithesis instrumentation SDKs (define test properties, generate
+  structured randomness, manage test lifecycle, coverage instrumentation) plus
+  the snouty CLI for the Antithesis platform API. SDKs are safe to run in
+  production and no-op outside the Antithesis environment.
+packages:
+  - language: python
+    registry: pypi
+    name: antithesis
+    url: https://pypi.org/project/antithesis/
+    install: python -m pip install antithesis
+    repository: https://github.com/antithesishq/antithesis-sdk-python
+    docs: https://antithesis.com/docs/reference/sdk/python/
+    official: true
+  - language: javascript
+    registry: npm
+    name: antithesis-sdk
+    url: https://www.npmjs.com/package/antithesis-sdk
+    install: npm install antithesis-sdk
+    repository: https://github.com/antithesishq/antithesis-sdk-typescript
+    docs: https://antithesis.com/docs/reference/sdk/javascript_sdk/
+    official: true
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/antithesishq/antithesis-sdk-go
+    url: https://pkg.go.dev/github.com/antithesishq/antithesis-sdk-go
+    install: go get github.com/antithesishq/antithesis-sdk-go@latest
+    repository: https://github.com/antithesishq/antithesis-sdk-go
+    docs: https://antithesis.com/docs/reference/sdk/go/
+    official: true
+  - language: rust
+    registry: crates.io
+    name: antithesis_sdk
+    url: https://crates.io/crates/antithesis_sdk
+    install: cargo add antithesis_sdk
+    repository: https://github.com/antithesishq/antithesis-sdk-rust
+    docs: https://antithesis.com/docs/reference/sdk/rust/
+    official: true
+  - language: java
+    registry: maven-central
+    name: com.antithesis:sdk
+    url: https://central.sonatype.com/artifact/com.antithesis/sdk
+    install: '<dependency><groupId>com.antithesis</groupId><artifactId>sdk</artifactId></dependency>'
+    repository: https://github.com/antithesishq/antithesis-sdk-java
+    docs: https://antithesis.com/docs/reference/sdk/java/
+    official: true
+  - language: dotnet
+    registry: nuget
+    name: Antithesis.SDK
+    url: https://www.nuget.org/packages/Antithesis.SDK
+    install: dotnet add package Antithesis.SDK
+    repository: https://github.com/antithesishq/antithesis-sdk-net
+    docs: https://antithesis.com/docs/reference/sdk/dotnet/
+    official: true
+  - language: cpp
+    registry: github
+    name: antithesis-sdk-cpp
+    url: https://github.com/antithesishq/antithesis-sdk-cpp
+    install: header-only; see repository
+    repository: https://github.com/antithesishq/antithesis-sdk-cpp
+    docs: https://antithesis.com/docs/reference/sdk/cpp/
+    official: true
+  - language: c
+    registry: github
+    name: antithesis-sdk-cpp
+    url: https://github.com/antithesishq/antithesis-sdk-cpp
+    install: header-only; see repository
+    repository: https://github.com/antithesishq/antithesis-sdk-cpp
+    docs: https://antithesis.com/docs/reference/sdk/c_sdk/
+    official: true
+  - language: rust
+    kind: cli
+    registry: crates.io
+    name: snouty
+    version: 0.6.1
+    url: https://crates.io/crates/snouty
+    install: cargo install snouty
+    repository: https://github.com/antithesishq/snouty
+    description: CLI for the Antithesis platform webhook/REST API.
+    official: true

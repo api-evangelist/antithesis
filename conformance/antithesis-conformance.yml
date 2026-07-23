@@ -1,0 +1,25 @@
+generated: '2026-07-17'
+method: derived
+source: https://antithesis.com/docs/configuration/auth/
+description: >-
+  Cross-cutting standards conformance derived from the Antithesis documentation.
+  Antithesis publishes no OpenAPI; conformance is asserted from documented auth /
+  SSO behavior only. Absence of a claim is recorded as conforms:false, not a
+  penalty.
+standards:
+  - id: oidc
+    conforms: true
+    evidence: >-
+      SSO integrates with any OIDC-compliant Identity Provider (Okta, Microsoft
+      Entra, Google Identity); Antithesis exposes an /oidc/callback redirect and
+      consumes the IdP issuer / .well-known/openid-configuration.
+    source: https://antithesis.com/docs/configuration/auth/
+  - id: oauth2
+    conforms: false
+    evidence: Machine credentials for the webhook API use HTTP Basic auth, not OAuth 2.0.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No documented application/problem+json error contract.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returned 404 on probe (2026-07-17).

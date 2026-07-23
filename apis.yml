@@ -1,9 +1,30 @@
 aid: antithesis
 name: Antithesis
-description: 'Antithesis is a company surfaced as a portfolio company of amplify-partners, spark-capital
-  and added to the API Evangelist network as a stub for enrichment. Sector: developer-tools. This profile
-  is a lead awaiting the enrichment pipeline.'
+description: >-
+  Antithesis is an autonomous software testing platform that finds deep bugs in
+  mission-critical systems using deterministic simulation and continuous fuzzing.
+  It runs your entire system inside a deterministic hypervisor, injects faults and
+  network partitions, explores reachable states, and reproduces any bug perfectly
+  for time-travel "multiverse" debugging and automated root-cause analysis. Teams
+  integrate through language SDKs (Go, Java, C/C++, Python, JavaScript, Rust,
+  .NET) that define always/sometimes properties and assertions, package their
+  software with Docker Compose or Kubernetes, then launch tests through a
+  webhook/REST API or the snouty CLI. It is used to harden databases, distributed
+  systems, blockchains, and financial trading infrastructure.
 url: https://raw.githubusercontent.com/api-evangelist/antithesis/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://github.com/antithesishq.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -17,7 +38,27 @@ modified: '2026-07-17'
 tags:
 - Company
 - Developer Tools
-apis: []
+- Testing
+- Software Testing
+- Deterministic Simulation
+- Fuzzing
+- Reliability
+- Distributed Systems
+- SDK
+apis:
+- name: Antithesis Platform API (Webhooks)
+  description: >-
+    Programmatic access to the Antithesis autonomous testing platform via
+    tenant-scoped webhook endpoints. POST /basic_test launches a test run; POST
+    /debugging starts a multiverse debugging session. Authenticated with HTTP
+    Basic machine credentials.
+  humanURL: https://antithesis.com/docs/reference/rest_api/
+  baseURL: https://{tenant}.antithesis.com
+  properties:
+  - type: APIReference
+    url: https://antithesis.com/docs/reference/rest_api/
+  - type: Webhooks
+    url: https://antithesis.com/docs/reference/webhook/overview/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +67,48 @@ maintainers:
 common:
 - type: Website
   url: https://antithesis.com
+- type: DeveloperPortal
+  url: https://antithesis.com/docs/
+- type: Documentation
+  url: https://antithesis.com/docs/
+- type: APIReference
+  url: https://antithesis.com/docs/reference/rest_api/
+- type: GettingStarted
+  url: https://antithesis.com/docs/getting_started/setup_guide/
+- type: Blog
+  url: https://antithesis.com/learn/?category=Blog
+- type: GitHubOrganization
+  url: https://github.com/antithesishq
+- type: Support
+  url: https://discord.com/invite/antithesis
+- type: Login
+  url: https://antithesis.com/login/
+- type: TermsOfService
+  url: https://antithesis.com/legal/terms_of_use/
+- type: PrivacyPolicy
+  url: https://antithesis.com/legal/privacy_policy/
+- type: TrustCenter
+  url: https://trust.antithesis.com/
+- type: Authentication
+  url: authentication/antithesis-authentication.yml
+- type: Packages
+  url: packages/antithesis-packages.yml
+- type: SDKs
+  url: packages/antithesis-packages.yml
+- type: CLI
+  url: cli/antithesis-cli.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/antithesis-llms.txt
+- type: Conventions
+  url: conventions/antithesis-conventions.yml
+- type: Conformance
+  url: conformance/antithesis-conformance.yml
+- type: DomainSecurity
+  url: security/antithesis-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

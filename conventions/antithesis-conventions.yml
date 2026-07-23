@@ -1,0 +1,50 @@
+generated: '2026-07-17'
+method: searched
+source: https://antithesis.com/docs/reference/webhook/ and https://antithesis.com/docs/configuration/auth/
+docs: https://antithesis.com/docs/reference/rest_api/
+description: >-
+  Cross-cutting semantics for programmatic use of the Antithesis platform. The
+  platform is driven by a small webhook/REST API (launch tests, start debugging)
+  plus language SDKs for in-code instrumentation. There is no published OpenAPI;
+  these conventions are captured from the docs.
+api_surface:
+  style: REST webhooks
+  base_url_pattern: https://{tenant}.antithesis.com
+  endpoints:
+    - path: /basic_test
+      method: POST
+      summary: Launch a test run (equivalent to a web-app test launcher).
+      docs: https://antithesis.com/docs/reference/webhook/test_webhook/
+    - path: /debugging
+      method: POST
+      summary: Start a multiverse debugging session.
+      docs: https://antithesis.com/docs/reference/webhook/notebook_webhook/
+  custom_endpoints: >-
+    Antithesis can create custom parameters or custom endpoints per customer via
+    customer success engineers (support@antithesis.com).
+authentication:
+  style: HTTP Basic (machine credentials) for the webhook/REST API; SSO (GitHub / OIDC) for interactive report + debugging access.
+  ref: authentication/antithesis-authentication.yml
+tenancy:
+  model: single-tenant isolation
+  note: Each tenant receives its own instance of the entire cloud infrastructure; data is not readable across tenants.
+idempotency:
+  supported: false
+  note: No documented idempotency-key header for the launch API.
+pagination:
+  supported: unknown
+  note: Not documented for the webhook API.
+versioning:
+  scheme: unversioned webhook endpoints
+  note: The REST/webhook surface and the snouty CLI are documented as new/experimental.
+parameters:
+  reference: https://antithesis.com/docs/reference/webhook/webhook_reference/
+  note: Webhook endpoints take parameters that control test behavior.
+report_access:
+  note: Reports are delivered as signed, unguessable URLs; signing keys can be rotated (destructive - invalidates all prior report URLs).
+error_handling:
+  note: No published error catalog / RFC 9457 problem+json contract for the webhook API.
+cross_links:
+  authentication: authentication/antithesis-authentication.yml
+  packages: packages/antithesis-packages.yml
+  cli: cli/antithesis-cli.yml

@@ -1,0 +1,30 @@
+generated: '2026-07-17'
+method: searched
+source: https://github.com/antithesishq/snouty
+name: snouty
+description: >-
+  snouty is the first-party (experimental) command-line interface for the
+  Antithesis platform API. It wraps the Antithesis webhook/REST endpoints used to
+  launch tests and start multiverse debugging sessions. Distributed as a Rust
+  binary via crates.io, a shell installer, and cargo-binstall.
+repository: https://github.com/antithesishq/snouty
+package: crates.io/crates/snouty
+version: 0.6.1
+docs: https://antithesis.com/docs/reference/webhook/
+status: experimental
+install:
+  - method: shell
+    command: "curl --proto '=https' --tlsv1.2 -LsSf https://github.com/antithesishq/snouty/releases/latest/download/snouty-installer.sh | sh"
+  - method: cargo-binstall
+    command: cargo binstall snouty
+  - method: cargo
+    command: cargo install snouty
+  - method: update
+    command: snouty update
+authentication: >-
+  Uses Antithesis machine credentials (webhook user/password, HTTP Basic auth)
+  scoped to your tenant.
+notes: >-
+  The binary is also catalogued in packages/antithesis-packages.yml. Command
+  surface maps to the Antithesis webhook endpoints (/basic_test to launch a test,
+  /debugging to start a multiverse debugging session).
