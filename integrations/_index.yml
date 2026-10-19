@@ -27,3 +27,95 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: antithesis-crates-io
+  label: crates.io
+  partner: crates-io
+  partner_name: crates.io
+  category: official SDK (Rust)
+  type: register
+  channel: package-registry
+  evidence: https://crates.io/crates/antithesis_sdk
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: crates.io (public registry JSON)
+    spec_file: null
+    language: Rust
+    packages:
+    - name: antithesis_sdk
+      version: 0.3.0
+      released: '2026-08-28'
+      released_field: updated_at
+      lapsed: false
+      page: https://crates.io/crates/antithesis_sdk
+      repo_leg: github-org:antithesishq
+      publisher_leg: org:antithesishq
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: antithesis-go-module-proxy
+  label: Go module proxy
+  partner_name: Go module proxy
+  category: official SDK (Go)
+  type: register
+  channel: package-registry
+  evidence: https://pkg.go.dev/github.com/antithesishq/antithesis-sdk-go
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Go module proxy (public registry JSON)
+    spec_file: null
+    language: Go
+    packages:
+    - name: github.com/antithesishq/antithesis-sdk-go
+      version: v0.8.0
+      released: '2026-08-28'
+      released_field: Time
+      lapsed: false
+      page: https://pkg.go.dev/github.com/antithesishq/antithesis-sdk-go
+      repo_leg: github-org:antithesishq
+      publisher_leg: org:antithesishq
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: antithesis-maven-central
+  label: Maven Central
+  partner: maven-central
+  partner_name: Maven Central
+  category: official SDK (Java/JVM)
+  type: register
+  channel: package-registry
+  evidence: https://central.sonatype.com/artifact/com.antithesis/sdk
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.antithesis:sdk
+      version: 1.7.0
+      released: '2026-09-02'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.antithesis/sdk
+      repo_leg: domain:antithesis.com
+      publisher_leg: groupId:antithesis.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
